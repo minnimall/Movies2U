@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{ /* กำหนดพื้นหลัง ตัวหนังสือ */
+    background-color: white;
+    color: black;
+}
+h1{ /* กำหนดขนาด ฟอนต์และสีของ element h1*/
+    font-size: 350%;
+    font-family: 'Monoton', cursive;;
+    color: red;
+    font-weight: bold;
+}
+h1::first-letter{ /* ตัวอักษรตัวแรก */
+    color: white;
+}
+.title_movie2u{ 
+    font-size: 350%;
+    font-family: 'Monoton', cursive;;
+    color: red;
+    font-weight: bold;
+}
+.title_edit_Movies{
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+.title_Movies{
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+.category{
+    border-left: 5px solid red;
+    padding-left: 8px;
+}
+.title_category_Movies{
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+a{
+    color: black;
+    font-weight: bold;
+}
+.title_movie2u::first-letter{ /* ตัวอักษรตัวแรก */
+    color: white;
+}
+.h2_top10{
+    border-left: 5px solid red;
+    padding-left: 8px;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+}
+.card-img-top-item{
+    height: 200px;
+    object-fit: cover;
+}
+.video-container {
+    width: 300px; /* กว้างของคอนเทนเนอร์วิดีโอ */
+    margin-left: 20px; /* ระยะห่างระหว่างโพสเตอร์และวิดีโอ */
+    display: inline-block; /* ให้วิดีโอแสดงในบรรทัดเดียวกับโพสเตอร์ */
+    vertical-align: top; /* จัดตำแหน่งให้วิดีโอไปด้านบนของโพสเตอร์ */
+}
+.footer{
+    text-align: center;
+}
+.footer_social {
+    text-align: center; 
+}
+ul{
+    list-style: none; 
+}
+.icon{
+    display: inline-block;
+    margin-right: 30px;
+    opacity: 0.4;
+}
+.icon:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+a{
+    text-decoration: none;
+}
+.list_type{
+    color: black;
+}
+.nav .list_type:hover {
+    border-bottom: 3px solid rgb(185, 185, 185);
+}
+.title_list_type{
+    font-size: 1.2em;
+}
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
