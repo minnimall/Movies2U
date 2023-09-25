@@ -157,7 +157,7 @@
                                 <a href="" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
                             </div>
                         </div>
-                    </div>dsdfsf
+                    </div>
                 </div>
                 @endif
                 @endforeach
