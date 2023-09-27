@@ -39,6 +39,7 @@
 
             @csrf
             <div class="row">
+                <p class="title_import_movie">Import Movies</p>
                 <div class="col-5">
                     <div class="input-group mb-3">
                         <input name="img" type="file" class="form-control" accept=".png" required onchange="previewImage(this)">
@@ -56,7 +57,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">MovieID:</span>
                         <input type="text" name="id" class="form-control" aria-describedby="basic-addon1" required>
-                      </div>
+                    </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Movie name:</span>
                         <input type="text" name="name" class="form-control" aria-describedby="basic-addon1" required>

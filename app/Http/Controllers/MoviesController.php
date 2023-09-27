@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Movie_type;
 use App\Models\Critical_rate;
+use App\Models\watchlist;
+use Illuminate\Support\Facades\Auth;
 class MoviesController extends Controller
 {
     public function home(){
@@ -42,6 +44,7 @@ class MoviesController extends Controller
 
     public function insertMovie(Request $request){
         $new_movie = new Movie;
+        $new_employee = new Employee;
         if ($request->score < 0 || $request->score > 10) {
             return redirect()->back()->with('error', 'คะแนนต้องอยู่ระหว่าง 0 ถึง 10')->withInput();
         }
@@ -72,6 +75,9 @@ class MoviesController extends Controller
         $new_movie->movie_type_id = $request->type;
         $new_movie->movie_info = $request->info;
         $new_movie->save();
+        $new_employee->emp_id = $request->emp_id;
+        $new_employee->emp_name = $request->emp_name;
+        $new_employee->save();
         return redirect('/moviemanagement');
     }
     public function movieform(){
@@ -141,4 +147,53 @@ class MoviesController extends Controller
         $ctr = Critical_rate::all();
         return view('movie2u.Category',compact('movie','mtype','ctr','type'));
     }
+
+    public function addwatchlist($movieId)
+    {
+        $user_id = Auth::id();
+        
+        // ตรวจสอบว่ามีการล็อกอินหรือไม่
+        if (Auth::check()) {
+            // ดึงข้อมูลผู้ใช้ที่ล็อกอินอยู่
+            $user = Auth::user();
+
+            // ตรวจสอบว่าผู้ใช้ล็อกอินหรือไม่
+            if ($user) {
+                // สร้าง Watchlist object และกำหนดค่า 'user_id' และ 'movie_id'
+                $add_watchlist = new Watchlist();
+                $add_watchlist->user_id = $user->id;
+                $add_watchlist->movie_id = $movieId;
+
+                // บันทึกลงใน watchlist
+                $add_watchlist->save(); 
+            
+        }
+        return redirect()->back();
+    }
+}
+
+public function show_allwatchlist(){
+    $user_id = Auth::id();
+
+    // ดึง movie_id ที่เกี่ยวข้องกับ user_id นี้จาก watchlist
+    $watchlistMovies = Watchlist::where('user_id', $user_id)->pluck('movie_id');
+
+    // ดึงข้อมูลหนังที่มี movie_id ใน watchlist
+    $moviesInWatchlist = Movie::whereIn('movie_id', $watchlistMovies)->get();
+
+    return view('movie2u.Watchlist', compact('user_id', 'moviesInWatchlist'));
+}
+
+public function deletewatchlist($id) {
+    $watchlistItem = watchlist::where('movie_id', $id)->first();
+
+    if ($watchlistItem) {
+            $watchlistItem->delete();
+            
+        return redirect('/MyWatchlist')->with('success', 'Movie deleted successfully.');
+    } else {
+        return redirect('/MyWatchlist')->with('error', 'Movie not found.');
+    }
+}
+
 }

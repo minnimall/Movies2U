@@ -7,13 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmployeeType extends Model
 {
-    public function employees()
-    {
-        return $this->belongsToMany(Employee::class, 'employee_type_employee', 'emp_type_id', 'emp_id');
-    }
-
-    public function movies()
-    {
-        return $this->belongsToMany(Movie::class, 'employee_type_movie', 'emp_type_id', 'movie_id');
-    }
+    use HasFactory;
+    function Movie_details(){
+        return $this->belongsToMany(Movie_detail::class);
+        }
 }

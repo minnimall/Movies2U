@@ -37,7 +37,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/user/profile">Setting</a></li> <!-- ลิ้งค์ไปหน้า profile -->
                         <li><a class="dropdown-item" href="/category">Category</a></li> <!-- ลิ้งค์ไปหน้าหมวดหมู่หนัง -->
-                        <li><a class="dropdown-item" href="#">Watchlist</a></li><hr> <!-- ลิ้งค์ไปหน้า watchlist -->
+                        <li><a class="dropdown-item" href="/MyWatchlist">Watchlist</a></li><hr> <!-- ลิ้งค์ไปหน้า watchlist -->
                         <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li> <!-- ออกจากระบบ -->
                     </ul>
                 </div>

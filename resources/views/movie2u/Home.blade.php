@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/user/profile">Setting</a></li> <!-- ลิ้งค์ไปหน้า profile -->
                         <li><a class="dropdown-item" href="/category">Category</a></li> <!-- ลิ้งค์ไปหน้าหมวดหมู่หนัง -->
-                        <li><a class="dropdown-item" href="#">Watchlist</a></li><hr> <!-- ลิ้งค์ไปหน้า watchlist -->
+                        <li><a class="dropdown-item" href="/MyWatchlist">Watchlist</a></li><hr> <!-- ลิ้งค์ไปหน้า watchlist -->
                         <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li> <!-- ออกจากระบบ -->
                     </ul>
                 </div>
@@ -97,7 +97,7 @@
                             </h5>
                             <div class="d-flex justify-content-between align-items-center mt-5">
                                 <a href="{{ url('/moviedetail/'.$m->movie_id) }}" class="btn btn-warning" style="width: 48%;">Detail</a>
-                                <a href="" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
+                                <a href="/addwatchlist/{{ $m->movie_id}}" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                             </h5>
                             <div class="d-flex justify-content-between align-items-center mt-5">
                                 <a href="{{ url('/moviedetail/'.$m->movie_id) }}" class="btn btn-warning" style="width: 48%;">Detail</a>
-                                <a href="" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
+                                <a href="/addwatchlist/{{ $m->movie_id}}" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                             </h5>
                             <div class="d-flex justify-content-between align-items-center mt-5">
                                 <a href="{{ url('/moviedetail/'.$m->movie_id) }}" class="btn btn-warning" style="width: 48%;">Detail</a>
-                                <a href="" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
+                                <a href="/addwatchlist/{{ $m->movie_id}}" class="btn btn-dark" style="width: 48%;"><i class="bi bi-plus-lg"></i> Watchlist</a>
                             </div>
                         </div>
                     </div>

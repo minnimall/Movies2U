@@ -18,6 +18,10 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    function watchlists(){
+        return $this->belongsToMany(watchlists::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

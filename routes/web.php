@@ -38,5 +38,11 @@ Route::get('/movie/edit/{id}',[MoviesController::class, 'edit']);
 Route::post('/movie/update',[MoviesController::class, 'update']);
 Route::get('/moviemanagement/delete/{id}', [MoviesController::class,'deleteMovie']);
 
+//ส่วนของ category หมวดหมู่หนัง
 Route::get('/type/{Id}', [MoviesController::class,'showType']);
 Route::get('/category', [MoviesController::class,'category']);
+
+//ส่วนของ watchlist
+Route::get('/addwatchlist/{movieId}', [MoviesController::class,'addwatchlist']);
+Route::get('/MyWatchlist', [MoviesController::class,'show_allwatchlist']);
+Route::get('/watchlist/delete/{id}', [MoviesController::class,'deletewatchlist']);
